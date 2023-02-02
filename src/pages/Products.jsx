@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react"
 import ProductContext from "../context/ProductContext"
 import Spinner from "../assets/spinner.gif"
 import ProductCard from "../components/ProductCard"
+import Divider from "../components/Divider"
 
 function Product() {
 	useEffect(() => {
@@ -19,11 +20,12 @@ function Product() {
 
 	if (!loading && productData) {
 		return (
-			<div id='products' className='my-container'>
+			<div id='products'>
 				<div>
-					<h1 className='text-center text-[48px]'>Products</h1>
+					<h1 className=' font-bold text-center text-[48px]'>Products</h1>
 				</div>
-				<div className='products-w'>
+				<Divider />
+				<div className='w-4/5'>
 					<div className='flex flex-wrap p-3 justify-center'>
 						{productData.map((product, index) => {
 							return <ProductCard key={index} productData={product} />
@@ -34,13 +36,15 @@ function Product() {
 		)
 	} else {
 		return (
-			<div className='w-100 m-20'>
-				<img
-					width={120}
-					className='text-center mx-auto'
-					src={Spinner}
-					alt='Loading'
-				/>
+			<div className='my-container'>
+				<div className='w-100 m-20'>
+					<img
+						width={120}
+						className='text-center mx-auto'
+						src={Spinner}
+						alt='Loading'
+					/>
+				</div>
 			</div>
 		)
 	}

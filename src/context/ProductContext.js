@@ -17,11 +17,23 @@ export const ProductProvider = ({ children }) => {
   const getProducts = async () => {
     setLoading();
 
-    const response = await fetch(`${API_URL}/products?limit=8&skip=2`);
+    const response = await fetch(`${API_URL}/products?limit=8`);
     const data = await response.json();
 
     dispatch({
       type: "GET_PRODUCTS",
+      payload: data
+    });
+  };
+
+  const getProduct = async (id) => {
+    setLoading();
+
+    const response = await fetch(`${API_URL}/products/${id}`);
+    const data = await response.json();
+
+    dispatch({
+      type: "GET_PRODUCT",
       payload: data
     });
   };
@@ -36,8 +48,10 @@ export const ProductProvider = ({ children }) => {
     <ProductContext.Provider
       value={{
         products: state.products,
+        product: state.product,
         loading: state.loading,
         getProducts,
+        getProduct,
       }}>
       {children}
     </ProductContext.Provider>

@@ -10,7 +10,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
+  overflow-y: scroll;
 }
 
 html::-webkit-scrollbar{
@@ -21,7 +21,7 @@ body {
   background-color: #fff;
   color: #000;
   font-family: "Rubik";
-  font-weight: 600;
+  font-weight: 400;
   overflow-x: hidden;
   margin: 0;
 }
@@ -43,7 +43,6 @@ button {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .navbar {
@@ -94,7 +93,6 @@ button {
 }
 
 .my-container{
-  border: #000 1px solid;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -105,16 +103,44 @@ button {
 
 #about{
   scroll-snap-align: center;
-}
-#products{
-  scroll-snap-align: center;
-}
-
-.products-w{
-
-  width: 60vw;
+  background-color: #0d1117;
+  color : #fff;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#contact{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#products{
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured-bg{
+  background: url(./assets/furniture.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 60vh;
+  width: 100%;
+  margin-top: -45px;
+  z-index: -1 ;
+}
+
+.product-bg{
+  background: linear-gradient(0deg, #F5F5DC 50%, transparent 50%);
 }

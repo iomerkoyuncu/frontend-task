@@ -1,5 +1,11 @@
 import React from "react"
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useLocation, Link } from "react-router-dom"
+
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
+
+import { IconButton } from "@mui/material"
+
+import Badge from "@mui/material/Badge"
 
 export default function Navbar() {
 	const navigate = useNavigate()
@@ -24,10 +30,10 @@ export default function Navbar() {
 						<a href='/'>Home</a>
 					</li>
 					<li className='navbarListItem'>
-						<a href='#about'>About us</a>
+						<a href={pathMatchRoute("/") ? "#about" : "/"}>About us</a>
 					</li>
 					<li className='navbarListItem'>
-						<a href='#products'>Products</a>
+						<a href={pathMatchRoute("/") ? "#products" : "/"}>Products</a>
 					</li>
 					<li className='navbarListItem'>
 						<p>Testimonial</p>
@@ -35,10 +41,25 @@ export default function Navbar() {
 				</ul>
 				<ul className='navbarListItems'>
 					<li className='navbarListItem'>
-						<a href='#contact'>Contact</a>
+						<a href={pathMatchRoute("/") ? "#contact" : "/"}>Contact</a>
 					</li>
 					<li className='navbarListItem bg-orange-400 px-5 py-3 text-white'>
 						<p>Buy Online</p>
+					</li>
+					<li>
+						<button>
+							<Link to='/shopping-cart'>
+								<IconButton>
+									<Badge
+										badgeContent={
+											JSON.parse(localStorage.getItem("cart"))?.length || 0
+										}
+										color='error'>
+										<ShoppingCartIcon />
+									</Badge>
+								</IconButton>
+							</Link>
+						</button>
 					</li>
 				</ul>
 			</nav>
