@@ -3,12 +3,13 @@
 [Live Version](https://frontend-task-ismetkync.netlify.app/)
 
 ![Screenshot](src/assets/ss/ss-1.png)
+---
 
 ![Screenshot](src/assets/ss/ss-2.png)
-
 ---
 
 ![Screenshot](src/assets/ss/ss-3.png)
+---
 
 ## Technologies
 
